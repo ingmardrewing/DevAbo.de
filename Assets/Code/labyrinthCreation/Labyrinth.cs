@@ -39,18 +39,18 @@ public class Labyrinth {
 				int z = 2 * ( (int) i / w );
 
 				if(pixels[i].r == 1F && pixels[i].g == 0F && pixels[i].b == 0F ){
-					temp.set_prefab(gmc.get_stairsdown());
+					temp.set_prefab(factory.get_stairsdown());
 					temp.set_location(new Vector3(x, 0, z ) );
 				}
 				
 				if(pixels[i].r == 0F && pixels[i].g == 1F && pixels[i].b == 0F ){
-					gmc.instantiate_block(gmc.get_player(), new Vector3 (x, 0f, z),  Quaternion.identity);
-					gmc.instantiate_block(gmc.get_camera(), new Vector3 (x, 1.87f, z),  Quaternion.identity);
+					gmc.instantiate_block(factory.get_player(), new Vector3 (x, 0f, z),  Quaternion.identity);
+					gmc.instantiate_block(factory.get_camera(), new Vector3 (x, 1.87f, z),  Quaternion.identity);
 				}
 
 				if(pixels[i].r == 1F && pixels[i].g == 0F && pixels[i].b == 1F && temp.type.Equals("inner")){
-					gmc.instantiate_block(gmc.get_pointlight(), new Vector3 (x, 2.87f, z),  Quaternion.identity);
-					temp.set_prefab(gmc.get_sewer());
+					gmc.instantiate_block(factory.get_pointlight(), new Vector3 (x, 2.87f, z),  Quaternion.identity);
+					temp.set_prefab(factory.get_sewer());
 				}
 
 				gmc.instantiate_block(temp.prefab, temp.location, temp.rotation );
