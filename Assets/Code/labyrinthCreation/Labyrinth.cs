@@ -10,7 +10,7 @@ public class Labyrinth {
 
 	public Labyrinth(GameControllerScript gmc_param, int level_param){
 		gmc = gmc_param;
-		factory = new TempPrefabStoreFactory (gmc);
+		factory = new TempPrefabStoreFactory ();
 	}
 
 	public void create_labyrinth(){
