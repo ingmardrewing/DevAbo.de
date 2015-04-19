@@ -20,7 +20,7 @@ public class Labyrinth {
 		var bytes = m.EncodeToPNG();
 
 		// For testing purposes, also write to a file in the project folder
-		File.WriteAllBytes(Application.dataPath + "/../SavedScreen.png", bytes);
+		File.WriteAllBytes(Application.dataPath + "/../Maze.png", bytes);
 
 		//Texture2D mapdata = Resources.Load ("roomsMap" ) as Texture2D;
 		_create_3D_rooms (m);
