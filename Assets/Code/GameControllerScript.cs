@@ -40,8 +40,40 @@ public class GameControllerScript : MonoBehaviour {
 	}
 
 	void Update(){
-		string statusTxt = "Hitpoints: ▣▣▣▣▣▢▢▢  Strength:▣▣▣  Armor:▣▣▣";
+		string statusTxt = "Hitpoints: " + _get_current_hp() 
+						 + "  Strength: " + _get_current_strength() 
+						 + "  Armor:" + _get_current_armor();
 		statsText.text = statusTxt;
+	}
+
+
+	private int max_hp = 8;
+	private int current_hp = 5;
+
+	private int max_armor = 3;
+	private int current_armor = 3;
+
+	private int max_strength = 3;
+	private int current_strength = 3;
+
+	private string _get_current_hp(){
+		return _write_amount (current_hp, max_hp);
+	}
+
+	private string _get_current_strength(){
+		return _write_amount (current_strength, max_strength);
+	}
+
+	private string _get_current_armor(){
+		return _write_amount (current_armor, max_armor);
+	}
+
+	private string _write_amount(int current, int max){
+		string amount = "";
+		for (int i=0; i<max; i++) {
+			amount += current <= i ? "□" : "■";
+		}
+		return amount;
 	}
 
 	void LateUpdate () {	
