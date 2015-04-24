@@ -19,4 +19,13 @@ abstract class Item {
 		
 	// the target upon which the item is used, e. g. the user, an enemy, another item
 	public Object target;
+
+	// setting the target
+	public abstract void set_target();
+
+	// clear target
+	public abstract void clear_target();
+
+	// apply item 
+	public abstract void apply();
 }
