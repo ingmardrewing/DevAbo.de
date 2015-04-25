@@ -1,27 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-abstract class Item {
+public abstract class Item {
 	// 2D Representation
 	// 3D Representation
-	
+	public abstract Vector3 position { get; set; }
+
 	// Obvious Name
-	public string obvious_name;
+	public abstract string obvious_name { get; set; }
 
 	// Obvious Description
-	public string obvious_description;
+	public abstract string obvious_description { get; set; }
 
 	// Informed Name
-	public string informed_name;
+	public abstract string informed_name { get; set; }
 
 	// Informed Desciption
-	public string informed_description;
+	public abstract string informed_description { get; set; }
 		
 	// the target upon which the item is used, e. g. the user, an enemy, another item
-	public Object target;
-
-	// setting the target
-	public abstract void set_target();
+	public abstract Object target { get; set; }
 
 	// clear target
 	public abstract void clear_target();
