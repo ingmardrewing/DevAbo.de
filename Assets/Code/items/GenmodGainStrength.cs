@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GenmodStrength : Item {
+public class GenmodGainStrength : Item {
 
 	// 
 	override public Vector3 position { get{ return position; } set{ position = value; }}
@@ -31,7 +31,7 @@ public class GenmodStrength : Item {
 
 	}
 
-	public GenmodStrength (string colorparam){
+	public GenmodGainStrength (string colorparam){
 		obvious_name = "A " + colorparam + " serum injection set.";
 	}
 
