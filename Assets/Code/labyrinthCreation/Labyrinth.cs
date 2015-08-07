@@ -6,11 +6,11 @@ using System.IO;
 public class Labyrinth {
 	
 	private GameControllerScript gmc;
-	private TempPrefabStoreFactory factory;
+	public TempPrefabStoreFactory factory;
 
-	public Labyrinth(GameControllerScript gmc_param, int level_param){
+	public Labyrinth(GameControllerScript gmc_param, int level_param, TempPrefabStoreFactory factory_param){
 		gmc = gmc_param;
-		factory = new TempPrefabStoreFactory ();
+		factory = factory_param;
 	}
 
 	public void create_labyrinth(){

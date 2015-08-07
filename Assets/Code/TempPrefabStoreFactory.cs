@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-class TempPrefabStoreFactory
+public class TempPrefabStoreFactory
 {
 	private GameObject tunnelStraight;
 	private GameObject tunnelCorner;
@@ -42,7 +42,7 @@ class TempPrefabStoreFactory
 		tunnelCorner = (GameObject)Resources.Load("prefabs/tunnel_corner", typeof (GameObject));
 		tunnelDeadend = (GameObject)Resources.Load("prefabs/tunnel_deadend", typeof (GameObject));
 		tunnelTCrossing = (GameObject)Resources.Load("prefabs/tunnel_t_crossing", typeof (GameObject));
-		tunnelXCrossing = (GameObject)Resources.Load("prefabs/tunnel_x_crossing", typeof (GameObject));	
+		tunnelXCrossing = (GameObject)Resources.Load("prefabs/tunnel_x_crossing", typeof (GameObject));		
 	}
 
 	public TempPrefabStore create_block_for_env(int[] env, int i, int w){

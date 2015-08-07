@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class GameControllerScript : MonoBehaviour {
 
-
 	private Labyrinth labyrinth;
 	public int level = 1;
 	private List<GameObject> instantiatedPrefabs;
@@ -13,22 +12,28 @@ public class GameControllerScript : MonoBehaviour {
 	private GameObject stats;
 	private Text statsText;
 
-
 	void Start () {
 		_init ();
 	}
 
 	private void _init(){
-		stats = GameObject.FindGameObjectWithTag ("UITXT");
-		statsText = stats.GetComponents<Text> () [0];
-		_create_labyrinth ();
+		TempPrefabStoreFactory factory = new TempPrefabStoreFactory ();
+		_create_gui_display (factory);
+		_create_labyrinth (factory);
 	}
 
-
-
-	private void _create_labyrinth(){
+	private void _create_gui_display( TempPrefabStoreFactory factory){
+		GameObject canvasContainer  = new GameObject("canvas", typeof(Canvas));
+		canvasContainer.AddComponent<Text> ();
+		Canvas canvas = canvasContainer.GetComponent<Canvas> ();
+		canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+		statsText = canvas.GetComponent<Text> ();	
+		statsText.font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+	}
+	
+	private void _create_labyrinth( TempPrefabStoreFactory factory){
 		instantiatedPrefabs = new List<GameObject> ();
-		labyrinth = new Labyrinth(this, level);
+		labyrinth = new Labyrinth(this, level, factory);
 		labyrinth.create_labyrinth ();
 	}
 
@@ -39,14 +44,13 @@ public class GameControllerScript : MonoBehaviour {
 		labyrinth = null;
 	}
 
-	void Update(){
-		string statusTxt = "Hitpoints: " + _get_current_hp() 
-						 + "  Strength: " + _get_current_strength() 
-						 + "  Armor:" + _get_current_armor();
-		statsText.text = statusTxt;
+	void Update(){ 
+		Text t = statsText.GetComponents<Text>() [0];
+		t.text = "Hitpoints: " + _get_current_hp() 
+			           + "  Strength: " + _get_current_strength() 
+				       + "  Armor:" + _get_current_armor();
 	}
-
-
+	
 	private int max_hp = 8;
 	private int current_hp = 5;
 
@@ -83,7 +87,7 @@ public class GameControllerScript : MonoBehaviour {
 
 			// creating next level
 			level++;
-			_create_labyrinth();
+			_create_labyrinth(new TempPrefabStoreFactory ());
 		}
 	}
 
