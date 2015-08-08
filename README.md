@@ -10,7 +10,7 @@
 4) create an empty game object.
 5) drag the C#-Script „GameControllerScript.cs“ onto the empty GameObject (you find the script in the folder „Code“ within the Assets folder).
 
-# Implemented features as of today:
+# Implemented features so far
 - generates a simple structure of connected rooms, whose creation is based on prefabbed 3D-Meshes created with Cheetah3D (the files ending with .jas)
 - saves a 2D-Map which is used for creating the 3D-Dungeons is as Maze.png
 - when the player character touches the staircase a new level is generated and the character is immediately placed into the new level
