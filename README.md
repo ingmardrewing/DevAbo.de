@@ -5,7 +5,7 @@
 
 # Installing
 1. Clone this git repository
-2. Open unity and navigate to the reop via "Open Other"
+2. Open unity and navigate to the repository via "Open Other"
 3. Even though unity opens an externally existing project, it puts some useless game objects into the stage (directional light, main camera) - remove them, so that the stage is completely empty
 4. create an empty game object.
 5. drag the C#-Script „GameControllerScript.cs“ onto the empty GameObject (you find the script in the folder „Code“ within the Assets folder).
