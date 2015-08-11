@@ -18,6 +18,7 @@ public class GameControllerScript : MonoBehaviour {
 
 	private void _init(){
 		TempPrefabStoreFactory factory = new TempPrefabStoreFactory ();
+		this.gameObject.tag = "GameController";
 		_create_gui_display (factory);
 		_create_labyrinth (factory);
 	}
